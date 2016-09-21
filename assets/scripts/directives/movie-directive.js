@@ -14,11 +14,15 @@ function movieDirective() {
 		controller: ['$http', function ($http) {
 			var vm = this;
 			// vm.test = 'this is a test';
-			vm.movie = {};
+			vm.title = '';
+			vm.year = '';
+			vm.type = '';
+			vm.api = '&apikey=96c42c1a',
 			vm.getMovie = function() {
+				
 				$http({
 					method: 'GET',
-					url: 'http://www.omdbapi.com/?s=Batman&page=2&apikey=96c42c1a',
+					url: 'http://www.omdbapi.com/?s='+vm.title +'&y='+vm.year+'&type=' +vm.type + vm.api,
 				}).then(function successCallback(response) {
 					console.log(response.data);
 					vm.movie = response.data;
@@ -29,6 +33,7 @@ function movieDirective() {
 			vm.getMovie();
 		}]
 	}
+
 	return directive;
 }
 

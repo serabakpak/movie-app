@@ -1,3 +1,15 @@
 <div>
-	{{movieCtrl.movie.Search[0].Title}}
+	
+	<p>Title: {{movieCtrl.title}}</p>
+	<p>Year: {{movieCtrl.year}}</p>
+	<p>Type: {{movieCtrl.type}}</p>
+
+	<form ng-submit="movieCtrl.getMovie()">
+		<input ng-model="movieCtrl.title" placeholder="e.g. Batman" class="form-control" required>
+		<input ng-model="movieCtrl.year" placeholder="e.g. 1992 (OPTIONAL)" class="form-control">
+		<input ng-model="movieCtrl.type" placeholder="e.g. movie, series, episode (OPTIONAL)" class="form-control">
+		<input type="submit" class="btn btn-primary">
+	</form>
+
+
 </div>
