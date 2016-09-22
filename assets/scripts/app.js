@@ -7,8 +7,8 @@ function config($routeProvider, $locationProvider) {
 	$routeProvider
 		.when('/', {
 			templateUrl: '/templates/movies.html',
-			controller: 'SearchController',
-			controllerAs: 'searchCtrl'
+			controller: 'IndexController',
+			controllerAs: 'indexCtrl'
 		})
 		.when('/:title', {
 			templateUrl: '/templates/show.html',
