@@ -2,9 +2,9 @@
 <div class="container" id="show-section">
 	<img class="backdrop-image" ng-src="https://image.tmdb.org/t/p/w500{{showCtrl.showMovie.backdrop_path}}" alt="{{showCtrl.showMovie.title}}">
 	<h2>{{showCtrl.showMovie.title}}</h2>
-	<p>Synopsis: {{showCtrl.showMovie.overview}}</p>
-	<p>Popularity: {{showCtrl.showMovie.popularity}}</p>
-	<p>Release Date: {{showCtrl.showMovie.release_date}}</p>
+	<p><strong>Synopsis:</strong> {{showCtrl.showMovie.overview}}</p>
+	<p><strong>Popularity:</strong> {{showCtrl.showMovie.popularity}}</p>
+	<p><strong>Release Date:</strong> {{showCtrl.showMovie.release_date}}</p>
 	<p>View on <a ng-href="http://www.imdb.com/title/{{showCtrl.showMovie.imdb_id}}">IMDB</a></p>
 </div>
 

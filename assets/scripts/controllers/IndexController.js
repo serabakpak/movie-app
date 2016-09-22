@@ -26,18 +26,21 @@ function IndexController($http) {
 		}
 	];
 	
+	
 
-	vm.getTopMovies = function(type) {
+	vm.getTopMovies = function(typeObject) {
+		console.log(typeObject);
 		$http({
 			method: 'GET',
-			url: 'https://api.themoviedb.org/3/movie/'+ type +vm.apiKey,
+			url: 'https://api.themoviedb.org/3/movie/'+ typeObject.urlPath + vm.apiKey,
 		}).then(function successCallback(response) {
-			console.log(response.data);
+			vm.type = typeObject.description;
 			vm.movies = response.data;
 		}, function errorCallback(error){
 			console.log('There was an error getting all movies (IndexController.js): ', error);
 		})
 	}
+
 	vm.getMovies = function() {
 		$http({
 			method: 'GET',
@@ -45,9 +48,12 @@ function IndexController($http) {
 		}).then(function successCallback(response) {
 			console.log(response.data);
 			vm.movies = response.data;
+			vm.type = vm.title;
 		}, function errorCallback(error){
 			console.log('There was an error getting all movies (IndexController.js): ', error);
 		})
 	}
+
+	vm.getTopMovies(vm.types[3]);
 
 }

@@ -15,6 +15,7 @@ h1 {
 
 h2 {
 	font-size: 4em;
+	text-align: center;
 }
 p {
 	font-size: 1.5em;
@@ -35,6 +36,9 @@ input[type="submit"] {
 
 /*ASIDE*/
 
+aside {
+	float: left;
+}
 aside a {
 	margin-left: 2em;
 	font-size: 2em;
@@ -48,6 +52,9 @@ aside a {
 #cards-section {
 	margin-top: 1em;
 	width: 60%;
+}
+#cards-section {
+	text-align: center;
 }
 
 .card {
