@@ -1,4 +1,4 @@
-<section ng-controller="SearchController as searchCtrl" id="search-section" class="container">
+<section id="search-section" class="container">
 		
 	<p>Title: {{searchCtrl.title}}</p>
 	<p>Year: {{searchCtrl.year}}</p>
@@ -10,10 +10,15 @@
 		<input ng-model="searchCtrl.type" placeholder="e.g. movie, series, episode (OPTIONAL)" class="form-control">
 		<input type="submit" class="btn btn-primary">
 	</form>
-	
-	
-	<div ng-repeat="movie in searchCtrl.movies.Search">
-		<button><a ng-href="/{{movie.Title}}">{{movie.Title}}</a></button>
+</section>
+<section class="container">	
+	<div class="row">
+		<div ng-repeat="movie in searchCtrl.movies.results" class="col-md-3">
+			
+			<a ng-href="/{{movie.original_title}}">
+				<img class="movie-image" ng-src="https://image.tmdb.org/t/p/w500{{movie.poster_path}}">
+			</a>
+		</div>
 	</div>
 
 

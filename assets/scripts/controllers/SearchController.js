@@ -9,12 +9,12 @@ function SearchController($http) {
 	vm.title = '';
 	vm.year = '';
 	vm.type = '';
-	vm.api = '&apikey=96c42c1a',
+	vm.api = 'api_key=ae01f4c171d182bb662a0f70e648aabf',
 	
 	vm.getMovie = function() {
 		$http({
 			method: 'GET',
-			url: 'http://www.omdbapi.com/?s='+vm.title +'&y='+vm.year+'&type=' +vm.type + vm.api,
+			url: 'https://api.themoviedb.org/3/search/movie?api_key=ae01f4c171d182bb662a0f70e648aabf&language=en-US&query=batman',
 		}).then(function successCallback(response) {
 			console.log(response.data);
 			vm.movies = response.data;
