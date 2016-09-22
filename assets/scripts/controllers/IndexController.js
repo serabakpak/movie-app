@@ -5,46 +5,26 @@ angular
 IndexController.$inject = ['$http' ,'MovieService']
 function IndexController($http, MovieService) {
 	var vm = this;
-	vm.apiKey = MovieService.apiKey
+	vm.type = '';
 	vm.title='';
-	vm.types=[
-		{
-			description: 'Top Rated',
-			urlPath : 'top_rated'
-		},
-		{
-			description: 'Now Playing',
-			urlPath : 'now_playing'
-		},
-		{
-			description: 'Upcoming',
-			urlPath : 'upcoming'
-		},
-		{
-			description: 'Popular',
-			urlPath : 'popular'
-		}
-	];
+	vm.types = MovieService.typesOfMovies;
 	
 	vm.getTopMovies = function(typeObject) {
 		console.log(typeObject);
-		$http({
-			method: 'GET',
-			url: 'https://api.themoviedb.org/3/movie/'+ typeObject.urlPath + vm.apiKey,
-		}).then(function successCallback(response) {
-			vm.type = typeObject.description;
-			vm.movies = response.data;
-		}, function errorCallback(error){
-			console.log('There was an error getting all movies (IndexController.js): ', error);
-		})
+		vm.type = typeObject.description;
+  	MovieService.topQuery(typeObject).then(function(data){
+  		console.log('here\'s the TOP movies data in INDEXCONTROLLER', data);
+  		vm.movies = data;
+  	})
 	}
 
-	vm.getMovies = function() {
-		
+	vm.getMovies = function() {		
+		vm.type = vm.title.charAt(0).toUpperCase() + vm.title.slice(1).toLowerCase();
 		MovieService.searchQuery(vm.title).then(function(data){
-  		console.log('here\'s the movies data in the controller', data);
+  		console.log('here\'s the SEARCH movies data in INDEXCONTROLLER', data);
   		vm.movies = data;
   	});
+
 	}
 	//initialization
 	vm.getTopMovies(vm.types[3]);
