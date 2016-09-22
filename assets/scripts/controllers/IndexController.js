@@ -2,10 +2,10 @@ angular
 	.module('movieApp')
 	.controller('IndexController', IndexController);
 
-IndexController.$inject = ['$http']
-function IndexController($http) {
+IndexController.$inject = ['$http' ,'MovieService']
+function IndexController($http, MovieService) {
 	var vm = this;
-	vm.apiKey = '?api_key=ae01f4c171d182bb662a0f70e648aabf';
+	vm.apiKey = MovieService.apiKey
 	vm.title='';
 	vm.types=[
 		{
@@ -26,8 +26,6 @@ function IndexController($http) {
 		}
 	];
 	
-	
-
 	vm.getTopMovies = function(typeObject) {
 		console.log(typeObject);
 		$http({
@@ -42,18 +40,13 @@ function IndexController($http) {
 	}
 
 	vm.getMovies = function() {
-		$http({
-			method: 'GET',
-			url: 'https://api.themoviedb.org/3/search/movie'+vm.apiKey+'&language=en-US&query='+vm.title,
-		}).then(function successCallback(response) {
-			console.log(response.data);
-			vm.movies = response.data;
-			vm.type = vm.title;
-		}, function errorCallback(error){
-			console.log('There was an error getting all movies (IndexController.js): ', error);
-		})
+		
+		MovieService.searchQuery(vm.title).then(function(data){
+  		console.log('here\'s the movies data in the controller', data);
+  		vm.movies = data;
+  	});
 	}
-
+	//initialization
 	vm.getTopMovies(vm.types[3]);
 
 }
