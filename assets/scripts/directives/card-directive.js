@@ -7,6 +7,7 @@ function cardDirective() {
 		restrict: 'E',
 		templateUrl: 'templates/card-directive.html',
 		replace: true,
+		// ask why this breaks code
 		scope: {
 			oneMovie : '='
 		}

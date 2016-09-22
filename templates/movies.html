@@ -2,8 +2,6 @@
 	<form ng-submit="indexCtrl.getMovies()">
 		<label for="title">Search titles!</label>
 		<input name="title" ng-model="indexCtrl.title" placeholder="e.g. Batman" class="form-control" required>
-		<!-- <input ng-model="indexCtrl.year" placeholder="e.g. 1992 (OPTIONAL)" class="form-control"> -->
-		<!-- <input ng-model="indexCtrl.type" placeholder="e.g. movie, series, episode (OPTIONAL)" class="form-control"> -->
 		<input type="submit" class="btn btn-primary">
 	</form>
 </section>
@@ -12,7 +10,6 @@
 	<div ng-repeat="type in indexCtrl.types">
 		<a href="#" ng-click="indexCtrl.getTopMovies(type)">{{type.description}} Movies</a>	
 	</div>
-
 </aside> 
 
 <section id="cards-section" class="container">	
@@ -25,9 +22,7 @@
 
 	<div class="row">
 		<div ng-repeat="movie in indexCtrl.movies.results" class="col-md-3 card">	
-			<a ng-href="/{{movie.id}}">
-				<img class="movie-image" ng-src="https://image.tmdb.org/t/p/w500{{movie.poster_path}}" alt="{{movie.title}}">
-			</a>
+			<card-directive one-movie="movie"></card-directive>
 		</div>
 	</div>
 </section>
