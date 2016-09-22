@@ -1,3 +1,75 @@
+* {
+	font-family: 'Abel', sans-serif;
+}
+
+header {
+/*	background-color: black;
+	color: white;*/
+	margin-bottom: 3em;
+}
+
+h1 {
+	font-size: 7em;
+	text-align: center;
+}
+
+h2 {
+	font-size: 4em;
+}
+p {
+	font-size: 1.5em;
+}
+
+#search-section {
+	width: 60%;
+}
+
+form {
+	width:70%;
+	margin: 0 auto;
+}
+
+input[type="submit"] {
+	margin-top: 1em;
+}
+
+/*ASIDE*/
+
+aside a {
+	margin-left: 2em;
+	font-size: 2em;
+}
+
+
+
+
+
+
+#cards-section {
+	margin-top: 1em;
+	width: 60%;
+}
+
+.card {
+	width: 25%;
+	height: 25em;
+	max-height: 25em;
+	position: relative;
+}
+
 .movie-image {
 	width: 80%;
+	text-align: center;
+	position: absolute;
+  	top: 50%;
+  	left: 50%;
+  	transform: translate(-50%, -50%);
+}
+
+#show-section {
+	width: 50%;
+}
+
+.backdrop-image {
+	width: 100%;
 }
