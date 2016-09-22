@@ -8,8 +8,10 @@
   <link rel="stylesheet" href="assets/styles/styles.css">
   
   <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.min.js"></script>
   <script src="assets/scripts/app.js"></script>
   <script src="assets/scripts/controllers/SearchController.js"></script>
+  <script src="assets/scripts/controllers/ShowController.js"></script>
   <!-- <script src="assets/scripts/directives/card-directive.js"></script> -->
 </head>
 
@@ -17,27 +19,11 @@
 	<header class="header">
 		<h1>Movies & TV Shows</h1>
 	</header>
-	<section ng-controller="SearchController as searchCtrl">
-		<section id="search-section" class="container">
-			<p>Title: {{searchCtrl.title}}</p>
-			<p>Year: {{searchCtrl.year}}</p>
-			<p>Type: {{searchCtrl.type}}</p>
+	
 
-			<form ng-submit="searchCtrl.getMovie()">
-				<input ng-model="searchCtrl.title" placeholder="e.g. Batman" class="form-control" required>
-				<input ng-model="searchCtrl.year" placeholder="e.g. 1992 (OPTIONAL)" class="form-control">
-				<input ng-model="searchCtrl.type" placeholder="e.g. movie, series, episode (OPTIONAL)" class="form-control">
-				<input type="submit" class="btn btn-primary">
-			</form>
-			<!-- <card-directive></card-directive> -->
-			{{searchCtrl.test}}
-			<div ng-repeat="movie in searchCtrl.movies.Search">
-				<button ng-click="searchCtrl.getOneMovie()">{{movie.Title}}</button>
-				
+	<div ng-view></div>
 
-			</div>
-		</section>
-	</section>
+
 
 	<!-- <section id="render-section" class="container">
 		<div ng-repeat="movie in searchCtrl.movies.Search">
