@@ -2,10 +2,21 @@
 	font-family: 'Abel', sans-serif;
 }
 
+a {
+	text-decoration: none;
+	color: black;
+
+}
+
+a:hover, a:visited, a:active, a:link {
+    text-decoration: none;
+}
+
 header {
 /*	background-color: black;
 	color: white;*/
 	margin-bottom: 3em;
+
 }
 
 h1 {
