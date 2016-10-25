@@ -10,7 +10,7 @@ function config($routeProvider, $locationProvider) {
 			controller: 'IndexController',
 			controllerAs: 'indexCtrl'
 		})
-		.when('/:id', {
+		.when('/movie-app/:id', {
 			templateUrl: '/templates/show.html',
 			controller: 'ShowController',
 			controllerAs: 'showCtrl'
