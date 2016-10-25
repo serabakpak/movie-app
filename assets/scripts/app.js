@@ -10,7 +10,7 @@ function config($routeProvider, $locationProvider) {
 			controller: 'IndexController',
 			controllerAs: 'indexCtrl'
 		})
-		.when('/movie-app/:id', {
+		.when('/:id', {
 			templateUrl: '/templates/show.html',
 			controller: 'ShowController',
 			controllerAs: 'showCtrl'
@@ -21,7 +21,7 @@ function config($routeProvider, $locationProvider) {
 	$locationProvider.html5Mode({
 			enabled: true,
 			requireBase: false
-	})
+	}).hashPrefix('!');
 }
 
 
