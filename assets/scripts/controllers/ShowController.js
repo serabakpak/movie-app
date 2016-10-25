@@ -5,7 +5,7 @@ angular
 ShowController.$inject = ['$http']
 function ShowController($http) {
 	var vm = this;
-	vm.idPath = window.location.pathname.replace('/movie-app/', '')
+	vm.idPath = window.location.pathname.replace('/movie-app', '')
 	vm.apiKey = '?api_key=ae01f4c171d182bb662a0f70e648aabf'
 	vm.getOneMovie = function() {
 		$http({
