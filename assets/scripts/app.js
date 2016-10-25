@@ -14,6 +14,8 @@ function config($routeProvider, $locationProvider) {
 			templateUrl: '/templates/show.html',
 			controller: 'ShowController',
 			controllerAs: 'showCtrl'
+		}).otherwise({
+			redirectTo: '/' 
 		});
 
 	$locationProvider.html5Mode({
@@ -23,4 +25,3 @@ function config($routeProvider, $locationProvider) {
 }
 
 
-// angular.module('movieApp', []);
